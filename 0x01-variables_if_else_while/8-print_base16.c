@@ -1,5 +1,4 @@
 #include <stdio.h>
-//hexadecimal
 int main(void)
 
 {
