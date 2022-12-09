@@ -1,9 +1,4 @@
 #include <stdio.h>
-/**
- * main - entry point
- *
- * Return: Always 0 (success/correct)
- */
 int main(void)
 
 {
@@ -23,7 +18,3 @@ putchar ('\n');
 return (0);
 
 }
-Footer
-© 2022 GitHub, Inc.
-Footer navigation
-Terms
