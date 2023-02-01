@@ -1,21 +1,45 @@
 #include "lists.h"
 
 /**
- * print_listint - prints all the elements of a linked list
- * @h: linked list of type listint_t to print
+ * insert_nodeint_at_index - inserts a new node in a linked list,
+ * at a given position
+ * @head: pointer to the first node in the list
+ * @idx: index where the new node is added
+ * @n: data to insert in the new node
  *
- * Return: number of nodes
+ * Return: pointer to the new node, or NULL
  */
-size_t print_listint(const listint_t *h)
+listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-    size_t num = 0;
+    unsigned int i;
+    listint_t *new;
+    listint_t *temp = *head;
 
-    while (h)
+    new = malloc(sizeof(listint_t));
+    if (!new || !head)
+        return (NULL);
+
+    new->n = n;
+    new->next = NULL;
+
+    if (idx == 0)
     {
-        printf("%d\n", h->n);
-        num++;
-        h = h->next;
+        new->next = *head;
+        *head = new;
+        return (new);
     }
 
-    return (num);
+    for (i = 0; temp && i < idx; i++)
+    {
+        if (i == idx - 1)
+        {
+            new->next = temp->next;
+            temp->next = new;
+            return (new);
+        }
+        else
+            temp = temp->next;
+    }
+
+    return (NULL);
 }
